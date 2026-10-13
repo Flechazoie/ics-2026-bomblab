@@ -6,7 +6,7 @@
 
 环境：Windows 上的 WSL2 Ubuntu，Linux x86-64，GCC、GNU binutils、GDB、Python 3.12。
 
-个人炸弹通过 `fetch_bomb.py` 按学号领取。六个正式关卡及 Honor 均已完成，公开测试分别通过 `60/60` 和 `10/10`。下面按关卡说明计算过程，最后列出测试记录和截图。
+六个正式关卡及 Honor 均已完成，公开测试分别通过 `60/60` 和 `10/10`。
 
 下文用 `C` 表示当前关卡的 challenge，`lo32(x)` 表示取低 32 位。汇编中的 32 位运算对应 C 代码中的 `uint32_t`，溢出时保留低 32 位。对 challenge 的移位先按 64 位执行，再截取结果。
 
@@ -198,7 +198,7 @@ d = b XOR (t+s+0x8dcc+(c>>7))
 | 6 | `2022753061` | `Phase 6 defused.` |
 | Honor | 32 个 A，接 `OPEN3 2312487408 2299993262` | `Secret phase defused.` |
 
-可复现命令：
+测试命令：
 
 ```sh
 make
@@ -206,7 +206,7 @@ make test
 { ./defuser --seed 43; ./defuser --secret --seed 43; } | ./bomb --seed 43
 ```
 
-以下为实际运行时的终端窗口截图，分别记录六关公开测试、Honor 和 seed `43` 的结果。
+运行截图如下：
 
 ![第 1 至 3 关公开测试](images/public-tests.png)
 
@@ -222,6 +222,6 @@ make test
 
 ## 参考资料与工具说明
 
-参考了[课程 Lab2 文档](https://ics-26fall-fdu.github.io/labs/lab2-bomb-lab/)及[BombLab 模板中的 README 和 tutor 教学](https://github.com/ICS-26Fall-FDU/BombLab)。个人常量、跳转表和链表数据均来自按本学号领取的 `bomb`。
+参考了[课程 Lab2 文档](https://ics-26fall-fdu.github.io/labs/lab2-bomb-lab/)及[BombLab 模板中的 README 和 tutor 教学](https://github.com/ICS-26Fall-FDU/BombLab)。
 
 分析使用 `objdump` 查看汇编、GDB 读取数据表和核对运行值，测试使用 GCC 和课程提供的脚本。
