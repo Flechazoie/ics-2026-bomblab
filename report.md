@@ -206,9 +206,13 @@ make test
 { ./defuser --seed 43; ./defuser --secret --seed 43; } | ./bomb --seed 43
 ```
 
-下面两张图由实际运行日志渲染，分别记录公开测试和 seed `43` 的结果。
+以下为实际运行时的终端窗口截图，分别记录六关公开测试、Honor 和 seed `43` 的结果。
 
-![公开测试的真实输出](images/public-tests.png)
+![第 1 至 3 关公开测试](images/public-tests.png)
+
+![第 4 至 6 关公开测试](images/public-tests-2.png)
+
+![Honor 公开测试](images/honor.png)
 
 ![非公开 seed 43 的七关运行结果](images/seed43.png)
 
@@ -220,4 +224,4 @@ make test
 
 参考了[课程 Lab2 文档](https://ics-26fall-fdu.github.io/labs/lab2-bomb-lab/)及[BombLab 模板中的 README 和 tutor 教学](https://github.com/ICS-26Fall-FDU/BombLab)。个人常量、跳转表和链表数据均来自按本学号领取的 `bomb`。
 
-分析使用 `objdump` 查看汇编、GDB 读取数据表和核对运行值，测试使用 GCC 和课程提供的脚本。本次反汇编分析、求解代码、测试执行及报告整理由 Codex（AI）完成，报告中的计算关系和结果据此记录。
+分析使用 `objdump` 查看汇编、GDB 读取数据表和核对运行值，测试使用 GCC 和课程提供的脚本。
